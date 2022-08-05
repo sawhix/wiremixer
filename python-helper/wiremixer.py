@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import sys
+from WiremixerNode import WiremixerNode
 
 # arguments <operation> [options]
 
@@ -19,6 +20,10 @@ if(len(sys.argv)) <= 1:
     print('this should print help')
 else:
     match sys.argv[1]:
+        #test - only used as shortcut for testing small methods
+        case 'test':
+            node = WiremixerNode(sys.argv[2], sys.argv[3], sys.argv[4])
+            print(node.getCommandString())
         case '-a' | 'add':
             if(len(sys.argv)) < 3:
                 print('not enough arguments')
